@@ -1,10 +1,11 @@
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+DROP DATABASE IF EXISTS youtube;
+DROP USER IF EXISTS  youtube@localhost;
+create user youtube@localhost identified by 'youtube';
+create database youtube;
+grant all privileges on youtube.* to youtube@localhost with grant option;
 
-CREATE SCHEMA IF NOT EXISTS mydb;
-USE mydb;
+USE youtube;
 
 CREATE TABLE IF NOT EXISTS Youtube_Channel (
   ch_id VARCHAR(100) NOT NULL,
